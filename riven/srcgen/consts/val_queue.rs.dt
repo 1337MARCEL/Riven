@@ -1,0 +1,32 @@
+{{
+    const dotUtils = require('./dotUtils.js');
+    const valQueues = require('./.valQueues.json');
+}}{{= dotUtils.preamble() }}
+
+use strum_macros::{ EnumString, EnumVariantNames, IntoStaticStr };
+
+/// Valorant queue string IDs.
+#[non_exhaustive]
+#[derive(Debug, Clone)]
+#[derive(Eq, PartialEq, Hash)]
+#[derive(EnumString, EnumVariantNames, IntoStaticStr)]
+#[repr(u8)]
+pub enum ValQueue {
+    /// Catch-all variant for new, unknown queue IDs.
+    #[strum(default)]
+    UNKNOWN(String),
+
+{{
+    for (const e of valQueues) {
+        const desc = e['x-desc'] ? e['x-desc'].split('\n') : [];
+}}
+{{~ desc :line }}
+    /// {{= line }}
+{{~}}
+    {{= e['x-name'] }} = {{= JSON.stringify(e['x-value']) }},
+{{
+    }
+}}
+}
+
+serde_strum_unknown!(ValQueue);
