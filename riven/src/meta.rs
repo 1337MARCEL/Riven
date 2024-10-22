@@ -8,7 +8,7 @@
 ///////////////////////////////////////////////
 
 // http://www.mingweisamuel.com/riotapi-schema/tool/
-// Version db87f38b04ca43dab4aa172bf66ad33bce803528
+// Version fa1a36066d9246823b97d247816090497853e853
 
 //! Metadata about the Riot API and Riven.
 //!
@@ -16,7 +16,7 @@
 
 /// Metadata for endpoints. Each tuple corresponds to one endpoint and contains
 /// the HTTP [`Method`](reqwest::Method), `str` path, and the method's `str` ID.
-pub static ALL_ENDPOINTS: [(reqwest::Method, &str, &str); 85] = [
+pub static ALL_ENDPOINTS: [(reqwest::Method, &str, &str); 86] = [
     (reqwest::Method::GET, "/riot/account/v1/accounts/by-puuid/{puuid}", "account-v1.getByPuuid"),
     (reqwest::Method::GET, "/riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine}", "account-v1.getByRiotId"),
     (reqwest::Method::GET, "/riot/account/v1/accounts/me", "account-v1.getByAccessToken"),
@@ -96,6 +96,7 @@ pub static ALL_ENDPOINTS: [(reqwest::Method, &str, &str); 85] = [
     (reqwest::Method::GET, "/val/match/console/v1/matches/{matchId}", "val-console-match-v1.getMatch"),
     (reqwest::Method::GET, "/val/match/console/v1/matchlists/by-puuid/{puuid}", "val-console-match-v1.getMatchlist"),
     (reqwest::Method::GET, "/val/match/console/v1/recent-matches/by-queue/{queue}", "val-console-match-v1.getRecent"),
+    (reqwest::Method::GET, "/val/console/ranked/v1/leaderboards/by-act/{actId}", "val-console-ranked-v1.getLeaderboard"),
     (reqwest::Method::GET, "/val/content/v1/contents", "val-content-v1.getContent"),
     (reqwest::Method::GET, "/val/match/v1/matches/{matchId}", "val-match-v1.getMatch"),
     (reqwest::Method::GET, "/val/match/v1/matchlists/by-puuid/{puuid}", "val-match-v1.getMatchlist"),

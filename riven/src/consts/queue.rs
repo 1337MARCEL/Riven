@@ -276,13 +276,31 @@ newtype_enum! {
         TWISTED_TREELINE_CO_OP_VS_AI_BEGINNER_BOT = 820,
         /// `830`.
         /// Co-op vs. AI Intro Bot games on Summoner's Rift
-        SUMMONERS_RIFT_CO_OP_VS_AI_INTRO_BOT = 830,
+        ///
+        /// Deprecated in March 2024 in favor of queueId 870
+        #[deprecated(note="Deprecated in March 2024 in favor of queueId 870")]
+        SUMMONERS_RIFT_CO_OP_VS_AI_INTRO_BOT_DEPRECATED_830 = 830,
         /// `840`.
         /// Co-op vs. AI Beginner Bot games on Summoner's Rift
-        SUMMONERS_RIFT_CO_OP_VS_AI_BEGINNER_BOT = 840,
+        ///
+        /// Deprecated in March 2024 in favor of queueId 880
+        #[deprecated(note="Deprecated in March 2024 in favor of queueId 880")]
+        SUMMONERS_RIFT_CO_OP_VS_AI_BEGINNER_BOT_DEPRECATED_840 = 840,
         /// `850`.
         /// Co-op vs. AI Intermediate Bot games on Summoner's Rift
-        SUMMONERS_RIFT_CO_OP_VS_AI_INTERMEDIATE_BOT = 850,
+        ///
+        /// Deprecated in March 2024 in favor of queueId 890
+        #[deprecated(note="Deprecated in March 2024 in favor of queueId 890")]
+        SUMMONERS_RIFT_CO_OP_VS_AI_INTERMEDIATE_BOT_DEPRECATED_850 = 850,
+        /// `870`.
+        /// Co-op vs. AI Intro Bot games on Summoner's Rift
+        SUMMONERS_RIFT_CO_OP_VS_AI_INTRO_BOT = 870,
+        /// `880`.
+        /// Co-op vs. AI Beginner Bot games on Summoner's Rift
+        SUMMONERS_RIFT_CO_OP_VS_AI_BEGINNER_BOT = 880,
+        /// `890`.
+        /// Co-op vs. AI Intermediate Bot games on Summoner's Rift
+        SUMMONERS_RIFT_CO_OP_VS_AI_INTERMEDIATE_BOT = 890,
         /// `900`.
         /// ARURF games on Summoner's Rift
         SUMMONERS_RIFT_ARURF = 900,

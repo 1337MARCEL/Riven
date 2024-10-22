@@ -8,7 +8,7 @@
 ///////////////////////////////////////////////
 
 // http://www.mingweisamuel.com/riotapi-schema/tool/
-// Version db87f38b04ca43dab4aa172bf66ad33bce803528
+// Version fa1a36066d9246823b97d247816090497853e853
 
 #![allow(missing_docs)]
 
@@ -1262,9 +1262,6 @@ pub mod match_v5 {
         #[serde(rename = "riotIdGameName")]
         #[serde(skip_serializing_if = "Option::is_none")]
         pub riot_id_game_name: Option<String>,
-        #[serde(rename = "riotIdName")]
-        #[serde(skip_serializing_if = "Option::is_none")]
-        pub riot_id_name: Option<String>,
         #[serde(rename = "riotIdTagline")]
         pub riot_id_tagline: String,
         #[serde(rename = "role")]
@@ -1725,6 +1722,36 @@ pub mod match_v5 {
         #[serde(rename = "soloBaronKills")]
         #[serde(skip_serializing_if = "Option::is_none")]
         pub solo_baron_kills: Option<i32>,
+        #[serde(rename = "SWARM_DefeatAatrox")]
+        #[serde(skip_serializing_if = "Option::is_none")]
+        pub swarm_defeat_aatrox: Option<i32>,
+        #[serde(rename = "SWARM_DefeatBriar")]
+        #[serde(skip_serializing_if = "Option::is_none")]
+        pub swarm_defeat_briar: Option<i32>,
+        #[serde(rename = "SWARM_DefeatMiniBosses")]
+        #[serde(skip_serializing_if = "Option::is_none")]
+        pub swarm_defeat_mini_bosses: Option<i32>,
+        #[serde(rename = "SWARM_EvolveWeapon")]
+        #[serde(skip_serializing_if = "Option::is_none")]
+        pub swarm_evolve_weapon: Option<i32>,
+        #[serde(rename = "SWARM_Have3Passives")]
+        #[serde(skip_serializing_if = "Option::is_none")]
+        pub swarm_have3_passives: Option<i32>,
+        #[serde(rename = "SWARM_KillEnemy")]
+        #[serde(skip_serializing_if = "Option::is_none")]
+        pub swarm_kill_enemy: Option<i32>,
+        #[serde(rename = "SWARM_PickupGold")]
+        #[serde(skip_serializing_if = "Option::is_none")]
+        pub swarm_pickup_gold: Option<i32>,
+        #[serde(rename = "SWARM_ReachLevel50")]
+        #[serde(skip_serializing_if = "Option::is_none")]
+        pub swarm_reach_level50: Option<i32>,
+        #[serde(rename = "SWARM_Survive15Min")]
+        #[serde(skip_serializing_if = "Option::is_none")]
+        pub swarm_survive15_min: Option<i32>,
+        #[serde(rename = "SWARM_WinWith5EvolvedWeapons")]
+        #[serde(skip_serializing_if = "Option::is_none")]
+        pub swarm_win_with5_evolved_weapons: Option<i32>,
         #[serde(rename = "soloKills")]
         #[serde(skip_serializing_if = "Option::is_none")]
         pub solo_kills: Option<i32>,
@@ -1804,36 +1831,6 @@ pub mod match_v5 {
         #[serde(rename = "wardTakedownsBefore20M")]
         #[serde(skip_serializing_if = "Option::is_none")]
         pub ward_takedowns_before20_m: Option<i32>,
-        #[serde(rename = "SWARM_DefeatAatrox")]
-        #[serde(skip_serializing_if = "Option::is_none")]
-        pub swarm_defeat_aatrox: Option<i32>,
-        #[serde(rename = "SWARM_DefeatBriar")]
-        #[serde(skip_serializing_if = "Option::is_none")]
-        pub swarm_defeat_briar: Option<i32>,
-        #[serde(rename = "SWARM_DefeatMiniBosses")]
-        #[serde(skip_serializing_if = "Option::is_none")]
-        pub swarm_defeat_mini_bosses: Option<i32>,
-        #[serde(rename = "SWARM_EvolveWeapon")]
-        #[serde(skip_serializing_if = "Option::is_none")]
-        pub swarm_evolve_weapon: Option<i32>,
-        #[serde(rename = "SWARM_Have3Passives")]
-        #[serde(skip_serializing_if = "Option::is_none")]
-        pub swarm_have3_passives: Option<i32>,
-        #[serde(rename = "SWARM_KillEnemy")]
-        #[serde(skip_serializing_if = "Option::is_none")]
-        pub swarm_kill_enemy: Option<i32>,
-        #[serde(rename = "SWARM_PickupGold")]
-        #[serde(skip_serializing_if = "Option::is_none")]
-        pub swarm_pickup_gold: Option<i32>,
-        #[serde(rename = "SWARM_ReachLevel50")]
-        #[serde(skip_serializing_if = "Option::is_none")]
-        pub swarm_reach_level50: Option<i32>,
-        #[serde(rename = "SWARM_Survive15Min")]
-        #[serde(skip_serializing_if = "Option::is_none")]
-        pub swarm_survive15_min: Option<i32>,
-        #[serde(rename = "SWARM_WinWith5EvolvedWeapons")]
-        #[serde(skip_serializing_if = "Option::is_none")]
-        pub swarm_win_with5_evolved_weapons: Option<i32>,
     }
     /// Missions data object.
     /// # Description
@@ -3069,6 +3066,10 @@ pub mod tft_match_v1 {
         pub players_eliminated: i32,
         #[serde(rename = "puuid")]
         pub puuid: String,
+        #[serde(rename = "riotIdGameName")]
+        pub riot_id_game_name: String,
+        #[serde(rename = "riotIdTagline")]
+        pub riot_id_tagline: String,
         /// The number of seconds before the participant was eliminated.
         #[serde(rename = "time_eliminated")]
         pub time_eliminated: f32,
@@ -4087,6 +4088,51 @@ pub mod val_console_match_v1 {
         /// A list of recent match ids.
         #[serde(rename = "matchIds")]
         pub match_ids: std::vec::Vec<String>,
+    }
+}
+
+/// Data structs used by [`ValConsoleRankedV1`](crate::endpoints::ValConsoleRankedV1).
+/// 
+/// Note: this module is automatically generated.
+#[allow(dead_code)]
+pub mod val_console_ranked_v1 {
+    /// Leaderboard data object.
+    #[derive(Clone, Debug)]
+    #[derive(serde::Serialize, serde::Deserialize)]
+    #[cfg_attr(feature = "deny-unknown-fields", serde(deny_unknown_fields))]
+    pub struct Leaderboard {
+        /// The shard for the given leaderboard.
+        #[serde(rename = "shard")]
+        pub shard: String,
+        /// The act id for the given leaderboard. Act ids can be found using the val-content API.
+        #[serde(rename = "actId")]
+        pub act_id: String,
+        /// The total number of players in the leaderboard.
+        #[serde(rename = "totalPlayers")]
+        pub total_players: i64,
+        #[serde(rename = "players")]
+        pub players: std::vec::Vec<Player>,
+    }
+    /// Player data object.
+    #[derive(Clone, Debug)]
+    #[derive(serde::Serialize, serde::Deserialize)]
+    #[cfg_attr(feature = "deny-unknown-fields", serde(deny_unknown_fields))]
+    pub struct Player {
+        /// This field may be omitted if the player has been anonymized.
+        #[serde(rename = "puuid")]
+        pub puuid: String,
+        /// This field may be omitted if the player has been anonymized.
+        #[serde(rename = "gameName")]
+        pub game_name: String,
+        /// This field may be omitted if the player has been anonymized.
+        #[serde(rename = "tagLine")]
+        pub tag_line: String,
+        #[serde(rename = "leaderboardRank")]
+        pub leaderboard_rank: i64,
+        #[serde(rename = "rankedRating")]
+        pub ranked_rating: i64,
+        #[serde(rename = "numberOfWins")]
+        pub number_of_wins: i64,
     }
 }
 

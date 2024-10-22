@@ -8,7 +8,7 @@
 ///////////////////////////////////////////////
 
 // http://www.mingweisamuel.com/riotapi-schema/tool/
-// Version db87f38b04ca43dab4aa172bf66ad33bce803528
+// Version fa1a36066d9246823b97d247816090497853e853
 
 //! Automatically generated endpoint handles.
 #![allow(clippy::let_and_return, clippy::too_many_arguments)]
@@ -251,6 +251,15 @@ impl RiotApi {
     #[inline]
     pub fn val_console_match_v1(&self) -> ValConsoleMatchV1 {
         ValConsoleMatchV1 { base: self }
+    }
+    /// Returns a handle for accessing [ValConsoleRankedV1](crate::endpoints::ValConsoleRankedV1) endpoints.
+    /// # Riot Developer API Reference
+    /// <a href="https://developer.riotgames.com/apis#val-console-ranked-v1" target="_blank">`val-console-ranked-v1`</a>
+    ///
+    /// Note: this method is automatically generated.
+    #[inline]
+    pub fn val_console_ranked_v1(&self) -> ValConsoleRankedV1 {
+        ValConsoleRankedV1 { base: self }
     }
     /// Returns a handle for accessing [ValContentV1](crate::endpoints::ValContentV1) endpoints.
     /// # Riot Developer API Reference
@@ -1707,7 +1716,7 @@ impl<'a> TftMatchV1<'a> {
     /// <a href="https://developer.riotgames.com/api-methods/#tft-match-v1/GET_getMatchIdsByPUUID" target="_blank">`tft-match-v1.getMatchIdsByPUUID`</a>
     ///
     /// Note: this method is automatically generated.
-    pub fn get_match_ids_by_puuid(&self, route: RegionalRoute, puuid: &str, count: Option<i32>, end_time: Option<i64>, start: Option<i32>, start_time: Option<i64>)
+    pub fn get_match_ids_by_puuid(&self, route: Route, puuid: &str, count: Option<i32>, end_time: Option<i64>, start: Option<i32>, start_time: Option<i64>)
         -> impl Future<Output = Result<Vec<String>>> + 'a
     {
         let route_str = route.into();
@@ -1730,7 +1739,7 @@ impl<'a> TftMatchV1<'a> {
     /// <a href="https://developer.riotgames.com/api-methods/#tft-match-v1/GET_getMatch" target="_blank">`tft-match-v1.getMatch`</a>
     ///
     /// Note: this method is automatically generated.
-    pub fn get_match(&self, route: RegionalRoute, match_id: &str)
+    pub fn get_match(&self, route: Route, match_id: &str)
         -> impl Future<Output = Result<Option<tft_match_v1::Match>>> + 'a
     {
         let route_str = route.into();
@@ -2205,6 +2214,43 @@ impl<'a> ValConsoleMatchV1<'a> {
         let future = self.base.execute_val::<val_console_match_v1::RecentMatches>("val-console-match-v1.getRecent", route_str, request);
         #[cfg(feature = "tracing")]
         let future = future.instrument(tracing::info_span!("val-console-match-v1.getRecent"));
+        future
+    }
+
+}
+
+/// ValConsoleRankedV1 endpoints handle, accessed by calling [`val_console_ranked_v1()`](crate::RiotApi::val_console_ranked_v1) on a [`RiotApi`](crate::RiotApi) instance.
+/// # Riot Developer API Reference
+/// <a href="https://developer.riotgames.com/apis#val-console-ranked-v1" target="_blank">`val-console-ranked-v1`</a>
+///
+/// Note: this struct is automatically generated.
+#[repr(transparent)]
+pub struct ValConsoleRankedV1<'a> {
+    base: &'a RiotApi,
+}
+impl<'a> ValConsoleRankedV1<'a> {
+    /// Get leaderboard for the competitive queue
+    /// # Parameters
+    /// * `route` - Route to query.
+    /// * `act_id` (required, in path) - Act ids can be found using the val-content API.
+    /// * `platform_type` (required, in query)
+    /// * `start_index` (optional, in query) - Defaults to 0.
+    /// * `size` (optional, in query) - Defaults to 200. Valid values: 1 to 200.
+    /// # Riot Developer API Reference
+    /// <a href="https://developer.riotgames.com/api-methods/#val-console-ranked-v1/GET_getLeaderboard" target="_blank">`val-console-ranked-v1.getLeaderboard`</a>
+    ///
+    /// Note: this method is automatically generated.
+    pub fn get_leaderboard(&self, route: ValPlatformRoute, act_id: &str, platform_type: &str, size: Option<i32>, start_index: Option<i32>)
+        -> impl Future<Output = Result<val_console_ranked_v1::Leaderboard>> + 'a
+    {
+        let route_str = route.into();
+        let request = self.base.request(Method::GET, route_str, &format!("/val/console/ranked/v1/leaderboards/by-act/{}", act_id));
+        let request = request.query(&[ ("platformType", platform_type) ]);
+        let request = if let Some(size) = size { request.query(&[ ("size", size) ]) } else { request };
+        let request = if let Some(start_index) = start_index { request.query(&[ ("startIndex", start_index) ]) } else { request };
+        let future = self.base.execute_val::<val_console_ranked_v1::Leaderboard>("val-console-ranked-v1.getLeaderboard", route_str, request);
+        #[cfg(feature = "tracing")]
+        let future = future.instrument(tracing::info_span!("val-console-ranked-v1.getLeaderboard"));
         future
     }
 
