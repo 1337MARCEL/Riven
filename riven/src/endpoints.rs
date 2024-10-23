@@ -1716,7 +1716,7 @@ impl<'a> TftMatchV1<'a> {
     /// <a href="https://developer.riotgames.com/api-methods/#tft-match-v1/GET_getMatchIdsByPUUID" target="_blank">`tft-match-v1.getMatchIdsByPUUID`</a>
     ///
     /// Note: this method is automatically generated.
-    pub fn get_match_ids_by_puuid(&self, route: Route, puuid: &str, count: Option<i32>, end_time: Option<i64>, start: Option<i32>, start_time: Option<i64>)
+    pub fn get_match_ids_by_puuid(&self, route: RegionalRoute, puuid: &str, count: Option<i32>, end_time: Option<i64>, start: Option<i32>, start_time: Option<i64>)
         -> impl Future<Output = Result<Vec<String>>> + 'a
     {
         let route_str = route.into();
@@ -1739,7 +1739,7 @@ impl<'a> TftMatchV1<'a> {
     /// <a href="https://developer.riotgames.com/api-methods/#tft-match-v1/GET_getMatch" target="_blank">`tft-match-v1.getMatch`</a>
     ///
     /// Note: this method is automatically generated.
-    pub fn get_match(&self, route: Route, match_id: &str)
+    pub fn get_match(&self, route: RegionalRoute, match_id: &str)
         -> impl Future<Output = Result<Option<tft_match_v1::Match>>> + 'a
     {
         let route_str = route.into();

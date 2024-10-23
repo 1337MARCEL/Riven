@@ -1262,6 +1262,9 @@ pub mod match_v5 {
         #[serde(rename = "riotIdGameName")]
         #[serde(skip_serializing_if = "Option::is_none")]
         pub riot_id_game_name: Option<String>,
+        #[serde(rename = "riotIdName")]
+        #[serde(skip_serializing_if = "Option::is_none")]
+        pub riot_id_name: Option<String>,
         #[serde(rename = "riotIdTagline")]
         pub riot_id_tagline: String,
         #[serde(rename = "role")]
@@ -3067,9 +3070,9 @@ pub mod tft_match_v1 {
         #[serde(rename = "puuid")]
         pub puuid: String,
         #[serde(rename = "riotIdGameName")]
-        pub riot_id_game_name: String,
+        pub riot_id_game_name: Option<String>,
         #[serde(rename = "riotIdTagline")]
-        pub riot_id_tagline: String,
+        pub riot_id_tagline: Option<String>,
         /// The number of seconds before the participant was eliminated.
         #[serde(rename = "time_eliminated")]
         pub time_eliminated: f32,
