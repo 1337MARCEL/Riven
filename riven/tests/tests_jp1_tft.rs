@@ -2,14 +2,13 @@ mod testutils;
 use riven::consts::*;
 use testutils::*;
 
-const ROUTE: PlatformRoute = PlatformRoute::EUW1;
+const ROUTE: PlatformRoute = PlatformRoute::JP1;
 
 static TFT_MATCHES: &[&str] = &[
-    // https://github.com/MingweiSamuel/Riven/pull/62
-    // https://github.com/MingweiSamuel/riotapi-schema/pull/43
-    "EUW1_6786745342",
-    // 2024-02-16
-    "EUW1_6807630149",
+    // 2024-08-28
+    "JP1_466820197",
+    // 2024-10-23
+    "JP1_476014499",
 ];
 
 #[riven_test]
@@ -43,7 +42,7 @@ async fn tftleaguev1_gettopratedladder() -> Result<(), String> {
 async fn tftmatchv1_getmatch() -> Result<(), String> {
     let p = riot_api()
         .tft_match_v1()
-        .get_match(ROUTE.to_regional(), "EUW1_6455483163");
+        .get_match(ROUTE.to_regional(), "JP1_466820197");
     let _m = p
         .await
         .map_err(|e| e.to_string())?

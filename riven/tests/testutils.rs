@@ -180,11 +180,12 @@ pub async fn tft_match_v1_get(
                 matche
             ));
         }
+        // Due to Riot's addition of bots to TFT, this test is not possible anymore
         if m.metadata.participants.len() != m.info.participants.len() {
-            return Err(format!(
+            eprintln!(
                 "Match {} participants do not line up with participant UUIDs.",
                 matche
-            ));
+            );
         }
         if m.info.participants.is_empty() {
             return Err(format!("Match {} should have participants (info).", matche));

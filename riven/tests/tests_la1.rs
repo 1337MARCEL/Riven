@@ -14,7 +14,7 @@ async fn lol_challenges_v1_leaderboards_playerdata() -> Result<(), String> {
     let challenge_id = CHALLENGE_ID_ARAM_1K_DPM;
     let leaderboard = riot_api()
         .lol_challenges_v1()
-        .get_challenge_leaderboards(ROUTE, challenge_id, Tier::GRANDMASTER, None)
+        .get_challenge_leaderboards(ROUTE, challenge_id, Tier::CHALLENGER, None)
         .await
         .map_err(|e| e.to_string())?
         .ok_or_else(|| {
