@@ -22,6 +22,7 @@ newtype_enum! {
     /// `AKALI` | "Akali" | "Akali" | 84
     /// `AKSHAN` | "Akshan" | "Akshan" | 166
     /// `ALISTAR` | "Alistar" | "Alistar" | 12
+    /// `AMBESSA` | "Ambessa" | "Ambessa" | 799
     /// `AMUMU` | "Amumu" | "Amumu" | 32
     /// `ANIVIA` | "Anivia" | "Anivia" | 34
     /// `ANNIE` | "Annie" | "Annie" | 1
@@ -199,6 +200,8 @@ newtype_enum! {
         AKSHAN = 166,
         /// `12`.
         ALISTAR = 12,
+        /// `799`.
+        AMBESSA = 799,
         /// `32`.
         AMUMU = 32,
         /// `34`.
@@ -537,6 +540,7 @@ impl Champion {
             Self::AKALI        => Some("Akali"),
             Self::AKSHAN       => Some("Akshan"),
             Self::ALISTAR      => Some("Alistar"),
+            Self::AMBESSA      => Some("Ambessa"),
             Self::AMUMU        => Some("Amumu"),
             Self::ANIVIA       => Some("Anivia"),
             Self::ANNIE        => Some("Annie"),
@@ -729,6 +733,7 @@ impl Champion {
             Self::AKALI        => Some("Akali"),
             Self::AKSHAN       => Some("Akshan"),
             Self::ALISTAR      => Some("Alistar"),
+            Self::AMBESSA      => Some("Ambessa"),
             Self::AMUMU        => Some("Amumu"),
             Self::ANIVIA       => Some("Anivia"),
             Self::ANNIE        => Some("Annie"),
@@ -951,6 +956,7 @@ impl std::str::FromStr for Champion {
             /* AKAL */ [ 'A',  'K',  'A',  'L'] => Ok(Champion::AKALI),
             /* AKSH */ [ 'A',  'K',  'S',  'H'] => Ok(Champion::AKSHAN),
             /* ALIS */ [ 'A',  'L',  'I',  'S'] => Ok(Champion::ALISTAR),
+            /* AMBE */ [ 'A',  'M',  'B',  'E'] => Ok(Champion::AMBESSA),
             /* AMUM */ [ 'A',  'M',  'U',  'M'] => Ok(Champion::AMUMU),
             /* ANIV */ [ 'A',  'N',  'I',  'V'] => Ok(Champion::ANIVIA),
             /* ANNI */ [ 'A',  'N',  'N',  'I'] => Ok(Champion::ANNIE),
